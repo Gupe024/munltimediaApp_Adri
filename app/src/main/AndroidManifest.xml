@@ -13,6 +13,13 @@
         android:theme="@style/Theme.MultimediaApp"
         tools:targetApi="31">
         <activity
+            android:name=".video1"
+            android:exported="false" />
+        <activity
+            android:name=".audio"
+            android:exported="false"
+            android:theme="@style/Theme.MultimediaApp" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

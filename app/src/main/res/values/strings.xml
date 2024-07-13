@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MultimediaApp</string>
+    <string name="Boton_audio">Botón de Audio</string>
+    <string name="Boton_video">Botón de video (Uri)</string>
+    <string name="btnplay">PLAY</string>
+    <string name="btnpausa">PAUSA</string>
+    <string name="btndetener">DETENER</string>
+    <string name="regresar">REGRESAR</string>
+    <string name="adelantar">ADELANTAR</string>
+    <string name="retroceder">RETRODECER</string>
 </resources>
