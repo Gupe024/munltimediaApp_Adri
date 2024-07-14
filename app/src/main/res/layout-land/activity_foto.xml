@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".foto">
+
+    <ImageButton
+        android:id="@+id/btnTomarFoto"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:src="@drawable/camara"
+        android:contentDescription="@string/tomar_foto"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"/>
+
+    <ImageView
+        android:id="@+id/imagenVista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/descripcion_imagen"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/regresar_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:text="@string/regresar" />
+
+</LinearLayout>
