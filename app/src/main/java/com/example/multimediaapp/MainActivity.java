@@ -5,27 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnAudio;
-    Button btnvideo1;
+    Button btnVideo;
     Button btnvideo2;
-    Button btnvideo3;
-    Button btnfoto;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         btnAudio = findViewById(R.id.btn_audio);
-        btnvideo1 = findViewById(R.id.btn_video1);
-
+        btnVideo = findViewById(R.id.btn_video1);
+        btnvideo2 = findViewById(R.id.btn_video2);
 
         btnAudio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,12 +30,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnvideo1.setOnClickListener(new View.OnClickListener() {
+        btnVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, video1.class);
+                Intent intent = new Intent(MainActivity.this, video.class);
                 startActivity(intent);
             }
         });
+
+        btnvideo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, video2.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
