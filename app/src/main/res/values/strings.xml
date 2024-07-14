@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MultimediaApp</string>
     <string name="Boton_audio">AUDIO</string>
-    <string name="Boton_video">VIDEO (Uri)</string>
+    <string name="Boton_video">VIDEO</string>
     <string name="Boton_video2">VIDEO (SurFaceView)</string>
     <string name="Boton_video3">VIDEO (VideoView)</string>
     <string name="Fotos">FOTOS</string>
@@ -11,4 +11,6 @@
     <string name="regresar">REGRESAR</string>
     <string name="adelantar">ADELANTAR</string>
     <string name="retroceder">RETRODECER</string>
+    <string name="descripcion_imagen"></string>
+    <string name="tomar_foto">Tomar foto</string>
 </resources>

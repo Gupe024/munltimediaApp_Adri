@@ -69,7 +69,7 @@ public class video2 extends AppCompatActivity implements SurfaceHolder.Callback 
             @Override
             public void onClick(View v) {
                 try {
-                    if (!mediaPlayer.isPlaying()) {
+                    if (mediaPlayer.isPlaying()) {
                         mediaPlayer.pause();
                     }
                 } catch (Exception e) {
