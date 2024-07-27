@@ -9,16 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.io.IOException;
 
-public class video2 extends AppCompatActivity implements SurfaceHolder.Callback {
+public class video2 extends AppCompatActivity {
 
     SurfaceView surfaceView;
     MediaPlayer mediaPlayer;
@@ -31,6 +27,7 @@ public class video2 extends AppCompatActivity implements SurfaceHolder.Callback 
 
     boolean Stopped = false;
 
+    @Override
     protected void onCreate(Bundle savedInstancesState) {
         super.onCreate(savedInstancesState);
         setContentView(R.layout.activity_video2);
@@ -44,7 +41,27 @@ public class video2 extends AppCompatActivity implements SurfaceHolder.Callback 
         regresar2 = findViewById(R.id.btn_regresar2);
 
         SurfaceHolder holder = surfaceView.getHolder();
-        holder.addCallback(this);
+        holder.addCallback(new SurfaceHolder.Callback() {
+            @Override
+            public void surfaceCreated(SurfaceHolder holder) {
+                configurarMediaPlayer();
+                mediaPlayer.setDisplay(holder);
+                mediaPlayer.start();
+            }
+
+            @Override
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+                // Manejar los cambios de superficie si es necesario
+            }
+
+            @Override
+            public void surfaceDestroyed(SurfaceHolder holder) {
+                if (mediaPlayer != null) {
+                    mediaPlayer.release();
+                    mediaPlayer = null;
+                }
+            }
+        });
 
         mediaPlayer = new MediaPlayer();
 
@@ -138,7 +155,6 @@ public class video2 extends AppCompatActivity implements SurfaceHolder.Callback 
             mediaPlayer.reset();
             Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.descendientes);
             mediaPlayer.setDataSource(this, videoUri);
-            mediaPlayer.setDisplay(surfaceView.getHolder());
             mediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();
@@ -146,23 +162,6 @@ public class video2 extends AppCompatActivity implements SurfaceHolder.Callback 
     }
 
     @Override
-    public void surfaceCreated(@NonNull SurfaceHolder holder) {
-        configurarMediaPlayer();
-    }
-
-    @Override
-    public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
-
-    }
-
-    @Override
-    public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
-    }
-
     protected void onDestroy() {
         super.onDestroy();
         if (mediaPlayer != null) {
